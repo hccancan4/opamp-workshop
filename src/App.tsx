@@ -17,6 +17,7 @@ const Applications = lazy(() => import('./pages/Applications'));
 const About        = lazy(() => import('./pages/About'));
 const Contributors = lazy(() => import('./pages/Contributors'));
 const Feedback     = lazy(() => import('./pages/Feedback'));
+const Privacy      = lazy(() => import('./pages/Privacy'));
 const NotFound     = lazy(() => import('./pages/NotFound'));
 
 /* ── Loading fallback ───────────────────────────────────────── */
@@ -64,6 +65,7 @@ function App() {
               <Route path="/about"        element={<About />} />
               <Route path="/contributors" element={<Contributors />} />
               <Route path="/feedback"     element={<Feedback />} />
+              <Route path="/privacy"      element={<Privacy />} />
               <Route path="*"             element={<NotFound />} />
             </Routes>
           </Suspense>

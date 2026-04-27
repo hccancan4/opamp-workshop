@@ -44,6 +44,7 @@ export default function Footer() {
               <li><Link to="/about">{t.footer_about}</Link></li>
               <li><Link to="/contributors">{t.footer_credits}</Link></li>
               <li><Link to="/feedback">{t.footer_feedback}</Link></li>
+              <li><Link to="/privacy">{t.footer_privacy}</Link></li>
             </ul>
           </div>
         </div>

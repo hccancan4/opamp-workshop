@@ -60,7 +60,7 @@ export type I18nStrings = {
   footer_h1: string; footer_h2: string; footer_h3: string;
   footer_theory: string; footer_chat: string;
   footer_sim: string; footer_apps: string;
-  footer_about: string; footer_credits: string; footer_feedback: string;
+  footer_about: string; footer_credits: string; footer_feedback: string; footer_privacy: string;
   footer_edu: string;
   // Simulator page
   sim_title: string; sim_lede: string;
@@ -150,7 +150,7 @@ const tr: I18nStrings = {
   footer_h1: 'Keşfet', footer_h2: 'Araçlar', footer_h3: 'Hakkında',
   footer_theory: 'Teori Bölümleri', footer_chat: 'Simülatör',
   footer_sim: 'Simülatör', footer_apps: 'Uygulamalar',
-  footer_about: 'Atölye hakkında', footer_credits: 'Katkıda bulunanlar', footer_feedback: 'Geri bildirim',
+  footer_about: 'Atölye hakkında', footer_credits: 'Katkıda bulunanlar', footer_feedback: 'Geri bildirim', footer_privacy: 'Gizlilik Politikası',
   footer_edu: 'Eğitim amaçlı',
   sim_title: 'Op-Amp Simülatörü', sim_lede: 'Parametreleri ayarla, çıkışı anlık gör.',
   sim_circuit: 'Devre', sim_params: 'Parametreler', sim_scope: 'Osiloskop',
@@ -237,7 +237,7 @@ const en: I18nStrings = {
   footer_h1: 'Explore', footer_h2: 'Tools', footer_h3: 'About',
   footer_theory: 'Theory Sections', footer_chat: 'Simulator',
   footer_sim: 'Simulator', footer_apps: 'Applications',
-  footer_about: 'About the workshop', footer_credits: 'Contributors', footer_feedback: 'Feedback',
+  footer_about: 'About the workshop', footer_credits: 'Contributors', footer_feedback: 'Feedback', footer_privacy: 'Privacy Policy',
   footer_edu: 'For educational use',
   sim_title: 'Op-Amp Simulator', sim_lede: 'Adjust parameters, see output instantly.',
   sim_circuit: 'Circuit', sim_params: 'Parameters', sim_scope: 'Oscilloscope',

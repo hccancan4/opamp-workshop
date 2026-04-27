@@ -1,0 +1,166 @@
+/* ── Privacy page content styles ────────────────────────────────
+   Scoped to .privacy-body — styles the dangerouslySetInnerHTML
+   output from the Termly-generated privacy policy.
+──────────────────────────────────────────────────────────────── */
+
+.privacy-body {
+  max-width: 760px;
+}
+
+/* ── Title block ── */
+.privacy-content .privacy-title-block {
+  margin-bottom: 2rem;
+}
+
+.privacy-content h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.privacy-content .privacy-updated {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--copper);
+}
+
+/* ── Section headings ── */
+.privacy-content h2 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  margin-top: 2.5rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.privacy-content h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Body text ── */
+.privacy-content p {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+  margin-bottom: 0.85rem;
+}
+
+.privacy-content p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ── Lists ── */
+.privacy-content ul,
+.privacy-content ol {
+  margin: 0 0 1rem 1.25rem;
+  padding: 0;
+}
+
+.privacy-content ul { list-style-type: square; }
+.privacy-content ul > li > ul { list-style-type: circle; margin-bottom: 0; }
+
+.privacy-content li {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin-bottom: 0.35rem;
+}
+
+.privacy-content li strong { color: var(--ink); }
+
+/* ── TOC list ── */
+.privacy-content .privacy-toc {
+  border: 1px solid var(--rule);
+  background: var(--paper-warm);
+  padding: 1.25rem 1.5rem 1.25rem 2.5rem;
+  margin-bottom: 0;
+}
+
+.privacy-content .privacy-toc li {
+  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+}
+
+/* ── Links ── */
+.privacy-content a {
+  color: var(--volt);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.12s;
+  word-break: break-word;
+}
+
+.privacy-content a:hover {
+  border-bottom-color: var(--volt);
+}
+
+/* ── Address block ── */
+.privacy-content address {
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.75;
+  border-left: 2px solid var(--copper);
+  padding-left: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+/* ── Table ── */
+.privacy-content .privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--rule);
+  font-size: 0.85rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.privacy-content .privacy-table th {
+  background: var(--paper-warm);
+  color: var(--ink);
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--rule);
+  text-align: left;
+}
+
+.privacy-content .privacy-table td {
+  color: var(--ink-muted);
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--rule-soft);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.privacy-content .privacy-table tr:nth-child(even) td {
+  background: var(--paper-warm);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .privacy-content h2 { font-size: 0.78rem; margin-top: 2rem; }
+
+  .privacy-content .privacy-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .privacy-content .privacy-toc { padding: 1rem 1rem 1rem 1.75rem; }
+}
