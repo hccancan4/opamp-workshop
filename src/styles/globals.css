@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&display=swap');
+
+:root {
+  --paper:        #F2EDE3;
+  --paper-warm:   #EDE6D7;
+  --paper-deep:   #E3DAC6;
+  --ink:          #1A1A1A;
+  --ink-soft:     #2C2C2C;
+  --ink-muted:    #5A5246;
+  --ink-dim:      #8A8170;
+  --rule:         #C8BFA8;
+  --rule-soft:    #D9D1BC;
+  --volt:         #1F4BD8;
+  --volt-soft:    #DCE3FA;
+  --copper:       #B4531A;
+  --copper-soft:  #F3D8C2;
+  --crimson:      #B8223C;
+  --moss:         #3F6B3A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.55;
+  overflow-x: hidden;
+  background-image:
+    linear-gradient(var(--rule-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: 0 0;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(242,237,227,0) 0%, var(--paper) 65%);
+  pointer-events: none; z-index: 0;
+}
+
+main, header, footer { position: relative; z-index: 1; }
+
+.mono { font-family: 'IBM Plex Mono', monospace; }
+.serif { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; }
+
+::selection { background: var(--volt); color: var(--paper); }
+
+:focus-visible {
+  outline: 2px solid var(--volt);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============== LAYOUT ============== */
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.section { padding: 6rem 0; position: relative; }
+.section + .section { border-top: 1px solid var(--rule); }
+
+/* ============== TYPOGRAPHY ============== */
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--copper);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.eyebrow::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--copper); flex-shrink: 0;
+}
+.eyebrow .num {
+  color: var(--ink-dim);
+  border: 1px solid var(--rule);
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+  font-weight: 500;
+}
+h2.heading {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  max-width: 22ch;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
+h2.heading .serif-em {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--volt);
+}
+.lede {
+  color: var(--ink-muted);
+  font-size: 1.1rem;
+  max-width: 56ch;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* ============== BUTTONS ============== */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 3px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer; border: none;
+  transition: transform 0.1s, background 0.15s, color 0.15s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--volt); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* ============== TAGS ============== */
+.tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--ink-muted);
+  background: var(--paper);
+}
+
+/* ============== CIRCUIT SVG helpers ============== */
+.wire { stroke: var(--ink); stroke-width: 1.5; fill: none; }
+.wire-in { stroke: var(--volt); stroke-width: 2; fill: none; }
+.wire-out { stroke: var(--copper); stroke-width: 2; fill: none; }
+.component { stroke: var(--ink); stroke-width: 1.5; fill: var(--paper); }
+.slabel { fill: var(--ink); font-size: 12px; font-family: 'IBM Plex Mono', monospace; }
+.sval { fill: var(--volt); font-size: 11px; font-family: 'IBM Plex Mono', monospace; font-weight: 500; }
+.svout { fill: var(--copper); font-size: 11px; font-family: 'IBM Plex Mono', monospace; font-weight: 500; }
+
+/* ============== REDUCED MOTION ============== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 1024px) {
+  .section { padding: 4rem 0; }
+  .wrap { padding: 0 1.25rem; }
+}
+@media (max-width: 560px) {
+  .wrap { padding: 0 1rem; }
+}

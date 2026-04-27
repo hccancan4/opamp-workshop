@@ -1,0 +1,43 @@
+.tooltip-wrap {
+  position: relative; display: inline;
+}
+.tooltip-trigger {
+  border-bottom: 1px dashed var(--copper);
+  cursor: help;
+  color: inherit;
+}
+.tooltip-box {
+  position: absolute; bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: var(--ink); color: var(--paper);
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  min-width: 220px; max-width: 280px;
+  display: flex; flex-direction: column; gap: 0.4rem;
+  box-shadow: 4px 4px 0 var(--copper);
+  pointer-events: auto;
+}
+.tooltip-box::after {
+  content: '';
+  position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+}
+.tooltip-term {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--copper-soft);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.tooltip-def {
+  font-size: 0.85rem; line-height: 1.45;
+  color: rgba(242,237,227,0.85);
+}
+.tooltip-more {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem; color: var(--volt-soft);
+  text-decoration: none; margin-top: 0.2rem;
+}
+.tooltip-more:hover { text-decoration: underline; }

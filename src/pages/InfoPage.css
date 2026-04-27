@@ -1,0 +1,211 @@
+/* ── Shared layout for About / Contributors / Feedback ─────────────────── */
+.info-page {
+  position: relative; z-index: 1;
+  min-height: calc(100vh - 120px);
+}
+
+.info-hero {
+  border-bottom: 1px solid var(--rule);
+  padding: 3.5rem 0 2.5rem;
+}
+.info-hero-inner { max-width: 680px; }
+.info-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.22em;
+  color: var(--copper); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.65rem;
+}
+.info-eyebrow::before {
+  content: ''; width: 20px; height: 1px; background: var(--copper); flex-shrink: 0;
+}
+.info-hero h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 500; letter-spacing: -0.025em; line-height: 1.1;
+  margin-bottom: 0.85rem;
+}
+.info-hero p {
+  font-size: 1.05rem; color: var(--ink-muted); line-height: 1.6; max-width: 55ch;
+}
+
+.info-body {
+  padding: 2.75rem 0 4rem;
+  display: flex; flex-direction: column; gap: 2.5rem;
+}
+
+/* ── Section block ── */
+.info-section {
+  display: flex; flex-direction: column; gap: 0.9rem;
+  max-width: 720px;
+}
+.info-section h2 {
+  font-size: 1.05rem; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.info-section p {
+  font-size: 0.95rem; color: var(--ink-muted); line-height: 1.65;
+}
+.info-section p strong { color: var(--ink); font-weight: 600; }
+
+/* ── Divider ── */
+.info-rule {
+  border: none; border-top: 1px solid var(--rule); margin: 0;
+}
+
+/* ── Card grid ── */
+.info-card-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1px; border: 1px solid var(--rule);
+  background: var(--rule);
+}
+.info-card {
+  background: var(--paper-warm);
+  padding: 1.25rem 1.35rem;
+  display: flex; flex-direction: column; gap: 0.45rem;
+}
+.info-card-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--copper);
+}
+.info-card-title {
+  font-size: 0.95rem; font-weight: 600; color: var(--ink);
+}
+.info-card-desc {
+  font-size: 0.85rem; color: var(--ink-muted); line-height: 1.55;
+}
+
+/* ── Tech stack list ── */
+.tech-list {
+  display: flex; flex-direction: column; gap: 0;
+  border: 1px solid var(--rule);
+}
+.tech-row {
+  display: grid; grid-template-columns: 160px 1fr;
+  border-bottom: 1px solid var(--rule-soft);
+  background: var(--paper-warm);
+}
+.tech-row:last-child { border-bottom: none; }
+.tech-name {
+  padding: 0.75rem 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem; font-weight: 600; color: var(--copper);
+  border-right: 1px solid var(--rule-soft);
+}
+.tech-desc {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem; color: var(--ink-muted);
+}
+.tech-desc a {
+  color: var(--volt); text-decoration: none; border-bottom: 1px solid transparent;
+  transition: border-color 0.12s;
+}
+.tech-desc a:hover { border-bottom-color: var(--volt); }
+
+/* ── Feedback form ── */
+.feedback-form {
+  display: flex; flex-direction: column; gap: 1.1rem;
+  max-width: 540px;
+  border: 1px solid var(--rule);
+  background: var(--paper-warm);
+  padding: 1.75rem 2rem;
+}
+.fb-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.fb-label {
+  font-size: 0.8rem; font-weight: 600; color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.fb-label span { color: var(--copper); }
+.fb-input, .fb-select, .fb-textarea {
+  font-family: inherit; font-size: 0.9rem;
+  color: var(--ink); background: var(--paper);
+  border: 1px solid var(--rule); padding: 0.6rem 0.8rem;
+  outline: none; border-radius: 2px;
+  transition: border-color 0.15s;
+}
+.fb-input:focus, .fb-select:focus, .fb-textarea:focus { border-color: var(--ink); }
+.fb-input::placeholder, .fb-textarea::placeholder { color: var(--ink-dim); }
+.fb-select { cursor: pointer; }
+.fb-textarea { resize: vertical; min-height: 110px; line-height: 1.55; }
+.fb-hint { font-size: 0.78rem; color: var(--ink-dim); }
+.fb-submit {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--ink); background: var(--ink); color: var(--paper);
+  font-family: inherit; font-size: 0.9rem; font-weight: 500;
+  cursor: pointer; border-radius: 2px;
+  transition: background 0.15s, border-color 0.15s;
+}
+.fb-submit:hover:not(:disabled) { background: var(--volt); border-color: var(--volt); }
+.fb-submit:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ── Success state ── */
+.feedback-success {
+  max-width: 540px;
+  border: 1px solid rgba(63,107,58,0.35);
+  background: rgba(63,107,58,0.06);
+  padding: 2rem 2.25rem;
+  display: flex; flex-direction: column; gap: 0.65rem;
+}
+.feedback-success h3 {
+  font-size: 1.05rem; font-weight: 600; color: var(--moss);
+}
+.feedback-success p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.55; }
+.fb-back-btn {
+  align-self: flex-start; margin-top: 0.5rem;
+  font-size: 0.85rem; color: var(--ink-muted);
+  background: none; border: none; cursor: pointer; padding: 0;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.fb-back-btn:hover { color: var(--ink); }
+
+/* ── Ko-fi card ── */
+.kofi-card {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.25rem; flex-wrap: wrap;
+  max-width: 540px;
+  border: 1px solid var(--rule);
+  background: var(--paper-warm);
+  padding: 1.25rem 1.5rem;
+}
+.kofi-card-left {
+  display: flex; align-items: center; gap: 1rem;
+}
+.kofi-icon {
+  font-size: 2rem; line-height: 1; flex-shrink: 0;
+}
+.kofi-title {
+  font-weight: 600; font-size: 1rem; color: var(--ink);
+}
+.kofi-sub {
+  font-size: 0.78rem; color: var(--ink-dim); margin-top: 0.15rem;
+}
+.kofi-btn {
+  display: inline-flex; align-items: center;
+  padding: 0.6rem 1.2rem;
+  background: var(--copper); color: var(--paper);
+  text-decoration: none; font-weight: 600; font-size: 0.88rem;
+  border-radius: 2px;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+}
+.kofi-btn:hover { opacity: 0.85; }
+
+/* ── GitHub link ── */
+.about-github-link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.88rem; color: var(--volt);
+  text-decoration: none; border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+  margin-top: 0.25rem;
+}
+.about-github-link:hover { border-bottom-color: var(--volt); }
+
+@media (max-width: 640px) {
+  .info-hero { padding: 2.5rem 0 2rem; }
+  .info-body { padding: 2rem 0 3rem; gap: 2rem; }
+  .tech-row { grid-template-columns: 1fr; }
+  .tech-name { border-right: none; border-bottom: 1px solid var(--rule-soft); }
+  .feedback-form { padding: 1.25rem 1.25rem; }
+  .info-card-grid { grid-template-columns: 1fr; }
+}

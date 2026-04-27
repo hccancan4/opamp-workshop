@@ -1,0 +1,141 @@
+.theory-page {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: calc(100vh - 65px);
+  max-width: 1240px; margin: 0 auto;
+}
+
+/* ---- Sidebar ---- */
+.theory-sidebar {
+  border-right: 1px solid var(--ink);
+  background: var(--paper-warm);
+  position: sticky; top: 65px;
+  height: calc(100vh - 65px);
+  overflow-y: auto; display: flex; flex-direction: column;
+}
+.sidebar-head {
+  padding: 1.5rem 1.25rem 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+.panel-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--copper); margin-bottom: 0.75rem;
+}
+.progress-bar-wrap {
+  height: 3px; background: var(--rule); border-radius: 2px;
+  margin: 0.6rem 0 0.4rem;
+}
+.progress-bar { height: 100%; background: var(--moss); border-radius: 2px; transition: width 0.4s; }
+.progress-text { font-size: 0.7rem; color: var(--ink-dim); }
+
+.chapter-list { flex: 1; display: flex; flex-direction: column; padding: 0.5rem 0; }
+.chapter-link {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.7rem 1.25rem;
+  text-decoration: none; color: var(--ink-muted); font-size: 0.88rem;
+  border-left: 3px solid transparent;
+  transition: background 0.1s, color 0.1s;
+}
+.chapter-link:hover { background: var(--paper); color: var(--ink); }
+.chapter-link.active { background: var(--paper); border-left-color: var(--copper); color: var(--ink); }
+.chapter-link.read { color: var(--ink-soft); }
+.ch-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--ink-dim); flex-shrink: 0; }
+.ch-title { flex: 1; line-height: 1.3; }
+.ch-check { color: var(--moss); font-size: 0.75rem; flex-shrink: 0; }
+
+/* ---- Content ---- */
+.theory-content { padding: 3rem; max-width: 760px; }
+
+.theory-intro { }
+.chapter-cards {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem; margin-top: 2.5rem;
+}
+.chapter-card {
+  border: 1px solid var(--ink); padding: 1.25rem;
+  background: var(--paper-warm); text-decoration: none; color: var(--ink);
+  display: flex; flex-direction: column; gap: 0.4rem;
+  transition: transform 0.1s;
+}
+.chapter-card:hover { transform: translate(-2px,-2px); box-shadow: 3px 3px 0 var(--ink); }
+.chapter-card h3 { font-size: 1.05rem; font-weight: 500; }
+.ch-time { font-size: 0.72rem; color: var(--ink-dim); }
+
+/* ---- Chapter view ---- */
+.chapter-view { max-width: 680px; }
+.chapter-eyebrow {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1rem;
+}
+.chapter-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 500;
+  letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 2rem;
+}
+.chapter-body { display: flex; flex-direction: column; gap: 1.2rem; }
+.chapter-body p { color: var(--ink-soft); font-size: 1.02rem; line-height: 1.65; }
+.chapter-body strong { color: var(--ink); font-weight: 600; }
+
+.chapter-example {
+  margin: 2rem 0; background: var(--paper-warm);
+  border: 1px solid var(--ink); padding: 1.25rem 1.5rem;
+}
+.example-label {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--copper); margin-bottom: 0.75rem; display: block;
+}
+.chapter-example pre {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.88rem;
+  line-height: 1.7; color: var(--ink); white-space: pre-wrap;
+}
+
+/* ---- Formula boxes ---- */
+.formula-section {
+  display: flex; flex-direction: column; gap: 0.85rem;
+  margin: 2rem 0;
+}
+.formula-box {
+  border: 1px solid var(--ink);
+  border-left: 4px solid var(--copper);
+  background: var(--paper-warm);
+  padding: 1rem 1.25rem;
+}
+.formula-label {
+  font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--copper); margin-bottom: 0.5rem; display: block;
+}
+.formula-expr {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--ink); letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+}
+.formula-vars {
+  font-size: 0.78rem; color: var(--ink-dim);
+  line-height: 1.65; border-top: 1px solid var(--rule-soft);
+  padding-top: 0.5rem; margin-top: 0.25rem;
+}
+
+.try-sim-btn { margin-bottom: 2rem; }
+
+.chapter-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 2rem; margin-top: 2rem; border-top: 1px solid var(--rule);
+}
+.chapter-nav-link {
+  font-size: 0.88rem; color: var(--ink-muted); text-decoration: none;
+  padding: 0.5rem 0; transition: color 0.15s;
+}
+.chapter-nav-link:hover { color: var(--volt); }
+.chapter-nav-link.next { text-align: right; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .theory-page { grid-template-columns: 1fr; }
+  .theory-sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--ink); }
+  .chapter-list { flex-direction: row; overflow-x: auto; flex-wrap: nowrap; padding: 0; }
+  .chapter-link { white-space: nowrap; border-left: none; border-bottom: 3px solid transparent; }
+  .chapter-link.active { border-left: none; border-bottom-color: var(--copper); }
+  .theory-content { padding: 2rem 1.25rem; }
+}

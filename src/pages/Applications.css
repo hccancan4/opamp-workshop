@@ -1,0 +1,148 @@
+.apps-page { position: relative; z-index: 1; }
+
+.app-tabs {
+  display: flex; gap: 0; border: 1px solid var(--ink);
+  margin-bottom: 0; flex-wrap: wrap;
+}
+.app-tab {
+  flex: 1; padding: 1.25rem 1.5rem;
+  border: none; background: var(--paper-warm); cursor: pointer;
+  text-align: left; border-right: 1px solid var(--ink);
+  display: flex; flex-direction: column; gap: 0.25rem;
+  transition: background 0.15s; border-bottom: 3px solid transparent;
+  font-family: inherit;
+}
+.app-tab:last-child { border-right: none; }
+.app-tab:hover { background: var(--paper); }
+.app-tab.active { background: var(--paper); border-bottom-color: var(--copper); }
+.app-tab-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--copper); }
+.app-tab-title { font-size: 1rem; font-weight: 500; color: var(--ink); }
+
+.app-demo-panel {
+  border: 1px solid var(--ink); border-top: none;
+  background: var(--paper-warm); padding: 2rem;
+}
+.demo-header { margin-bottom: 1.5rem; }
+.demo-header h2 { font-size: 1.4rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
+.demo-header p { color: var(--ink-muted); font-size: 0.95rem; }
+
+.app-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  grid-template-areas:
+    "controls  scope"
+    "insight   scope"
+    "simlink   simlink";
+  gap: 1rem 1.25rem;
+  align-items: start;
+}
+.app-demo .demo-controls { grid-area: controls; }
+.app-demo .demo-insight  { grid-area: insight; }
+.app-demo .demo-scope    { grid-area: scope; align-self: stretch; }
+.app-demo .demo-sim-link { grid-area: simlink; }
+
+.demo-scope {
+  background: var(--paper); border: 1px solid var(--rule);
+  aspect-ratio: 640/220; overflow: hidden;
+}
+.demo-scope--tall { aspect-ratio: 640/280; }
+.demo-scope--bode { aspect-ratio: 640/320; }
+.demo-scope canvas { width: 100% !important; height: 100% !important; display: block; }
+
+.demo-controls {
+  display: flex; flex-direction: column; gap: 0.75rem;
+  background: var(--paper); border: 1px solid var(--rule); padding: 1rem 1.25rem;
+}
+.demo-slider-row {
+  display: grid; grid-template-columns: 1fr 2fr auto;
+  gap: 1rem; align-items: center; font-size: 0.88rem; color: var(--ink-muted);
+}
+.demo-slider-row input[type="range"] {
+  width: 100%; cursor: pointer; accent-color: var(--volt);
+}
+.demo-slider-row .mono { min-width: 80px; text-align: right; font-size: 0.82rem; color: var(--volt); font-weight: 600; }
+.demo-toggle-row { font-size: 0.88rem; color: var(--ink-muted); display: flex; gap: 0.5rem; align-items: center; }
+.demo-toggle-row input { accent-color: var(--volt); }
+
+/* ── Insight card ─────────────────────────────────────────────────────────── */
+.demo-insight {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: 0.9rem 1.1rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+}
+.insight-status {
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+  padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule-soft);
+}
+.insight-subtitle { font-size: 0.72rem; color: var(--ink-dim); letter-spacing: 0.05em; }
+
+/* Badges */
+.insight-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.22rem 0.6rem;
+}
+.badge--green  { background: rgba(63,107,58,0.1);  color: var(--moss);   border: 1px solid rgba(63,107,58,0.3); }
+.badge--red    { background: rgba(184,34,60,0.1);  color: var(--crimson);border: 1px solid rgba(184,34,60,0.3); }
+.badge--orange { background: rgba(180,83,26,0.1);  color: var(--copper); border: 1px solid rgba(180,83,26,0.3); }
+.badge--blue   { background: rgba(31,75,216,0.08); color: var(--volt);   border: 1px solid rgba(31,75,216,0.25); }
+.badge--gray   { background: rgba(90,82,70,0.08);  color: var(--ink-dim);border: 1px solid rgba(90,82,70,0.2); }
+
+/* Calculation block */
+.insight-calc {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem;
+  color: var(--ink); line-height: 1.7;
+  padding: 0.55rem 0.8rem;
+  background: var(--paper-warm); border-left: 3px solid var(--rule);
+  display: flex; flex-direction: column; gap: 0.05rem;
+}
+.ic-val  { color: var(--copper); font-weight: 600; }
+.ic-ok   { color: var(--moss);   font-weight: 600; }
+.ic-bad  { color: var(--crimson);font-weight: 600; }
+.ic-dim  { color: var(--ink-dim); }
+.ic-key  { color: var(--ink); }
+
+/* Explanation */
+.insight-explain {
+  font-size: 0.875rem; color: var(--ink-muted);
+  line-height: 1.55; margin: 0;
+}
+/* Tip */
+.insight-tip {
+  font-size: 0.8rem; color: var(--ink-dim);
+  padding: 0.35rem 0.7rem;
+  background: var(--paper-warm); border-left: 2px solid var(--rule-soft);
+}
+
+/* Schmitt output state indicator */
+.schmitt-out-indicator {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em;
+  transition: color 0.15s;
+}
+.schmitt-out-indicator.s-high { color: var(--moss); }
+.schmitt-out-indicator.s-low  { color: var(--crimson); }
+
+/* Legacy — keep for any leftover refs */
+.clipped { color: var(--crimson); font-weight: 600; align-self: center; }
+
+.demo-sim-link { align-self: flex-start; font-size: 0.85rem; padding: 0.45rem 0.9rem; }
+
+@media (max-width: 860px) {
+  .app-tabs { flex-direction: column; }
+  .app-tab { border-right: none; border-bottom: 1px solid var(--ink); border-left: 3px solid transparent; }
+  .app-tab.active { border-left-color: var(--copper); border-bottom-color: var(--ink); }
+  .demo-slider-row { grid-template-columns: 1fr auto; }
+  .demo-slider-row input { grid-column: 1/-1; }
+
+  /* Revert to vertical stack on mobile */
+  .app-demo {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    grid-template-areas: none;
+    gap: 1.25rem;
+  }
+}

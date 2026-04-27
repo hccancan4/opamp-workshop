@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Update the Sitemap URL to match your Vercel deployment domain
+Sitemap: https://opamp-atolyesi.vercel.app/sitemap.xml
