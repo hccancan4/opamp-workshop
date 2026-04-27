@@ -1,5 +1,7 @@
 # Op-Amp Atolyesi
 
+https://opamp-workshop.vercel.app/
+
 Tarayicida calisan, iki dilli (TR/EN), etkilesimli bir islemsel yukseltec (op-amp) ogrenme uygulamasi.
 
 - Canli simulatorde devre parametrelerini degistirip dalga bicimlerini izleyebilirsiniz.
